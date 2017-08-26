@@ -44,13 +44,10 @@ X_test[:, 0:8] = imputert.transform(X_test[:, 0:8])
 
 
 
-#
-
-
-from sklearn.linear_model import LinearRegression
+"""from sklearn.linear_model import LinearRegression
 classifier = LinearRegression()
 classifier.fit(X_train, Y_train)
-
+"""
 #--------------XGBOOST MODEL------------------
 """from xgboost import XGBClassifier
  classifier = XGBClassifier()
@@ -60,15 +57,15 @@ classifier.fit(X_train, Y_train)
 
 #--------------------------LGBM MODEL-----------------------
 
-"""from lightgbm import LGBMClassifier
-classifier = LGBMClassifier()
+from lightgbm import LGBMRegressor
+classifier = LGBMRegressor()
 classifier.fit(X_train, Y_train)
-"""
+
 y_pred = classifier.predict(X_test)
 
 
 df = pd.DataFrame(y_pred)
 
 
-df.to_csv('outpuut.csv',sep=' ',index=False, header=False)
+df.to_csv('output.csv',sep=' ',index=False, header=False)
 
